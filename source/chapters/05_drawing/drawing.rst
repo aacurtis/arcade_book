@@ -210,11 +210,11 @@ is really 602x632 if you count the title bar and borders.
 How do we know ``open_window`` is the name of the function to call? How did
 we know what parameters to use? The names of the functions, the order of the
 parameters, is the **Application Program Interface** or "API" for short. You can
-click here for the entire `Arcade API <https://api.arcade.academy/en/latest/quick_index.html>`_
+click here for the entire `Arcade API <https://api.arcade.academy/en/latest/api_docs/quick_index.html>`_
 or go straight to the documentation
 for :func:`arcade.open_window`. Any decent library will have API
 documentation, and
-`example code <https://api.arcade.academy/en/latest/examples/index.html>`_
+`example code <https://api.arcade.academy/en/latest/example_code/index.html>`_
 to show how to use the library.
 
 Below is an example program that will open up a window:
@@ -372,8 +372,8 @@ you will see some of the items behind the square. An alpha of 0 is completely
 transparent and you'll see nothing of the square.
 
 .. _color chart: http://www.colorpicker.com/color-chart/
-.. _arcade.csscolor API documentation: https://api.arcade.academy/en/latest/arcade.csscolor.html
-.. _arcade.color API documentation: https://api.arcade.academy/en/latest/arcade.color.html
+.. _arcade.csscolor API documentation: https://api.arcade.academy/en/latest/api_docs/arcade.csscolor.html
+.. _arcade.color API documentation: https://api.arcade.academy/en/latest/api_docs/arcade.color.html
 
 What is a Byte?
 ^^^^^^^^^^^^^^^
@@ -515,7 +515,7 @@ Your window should look like this:
 
 Sometimes we don't want to specify a rectangle by left-right-top-bottom.
 There is also an option to specify it by center x, center y, width, and height using the
-:func:`arcade.draw_rect_filled` function. For example
+:func:`arcade.draw_rect_filled` function with the :func:`arcade.XYWH` function. For example
 this code displays a tree trunk:
 
 .. code-block:: python
@@ -524,13 +524,13 @@ this code displays a tree trunk:
     # Center of 100, 320
     # Width of 20
     # Height of 60
-    arcade.draw_rect_filled(100, 320, 20, 60, arcade.csscolor.SIENNA)
+    arcade.draw_rect_filled(arcade.XYWH(100, 320, 20, 60), arcade.csscolor.SIENNA)
 
 .. image:: trunk.png
    :width: 35%
 
 There's also a function to draw the outline of a rectangle called
-:func:`arcade.draw_rectangle_outline`. Both of these functions (and many others)
+:func:`arcade.draw_rect_outline`. Both of these functions (and many others)
 have an optional parameter to tilt the rectangle to a desired angle.
 
 Drawing Circles
@@ -570,8 +570,8 @@ inside it. Examine this code sample:
     # a center of (300, 300)
     # width of 350
     # height of 200
-    arcade.draw_rectangle_outline(300, 300, 350, 200, arcade.csscolor.BLACK, 3)
-    arcade.draw_ellipse_outline(300, 300, 350, 200, arcade.csscolor.RED, 3)
+    arcade.draw_rect_outline(arcade.XYWH(300, 300, 350, 200), arcade.csscolor.BLACK, 3)
+    arcade.draw_ellipse_outline(arcade.XYWH(300, 300, 350, 200), arcade.csscolor.RED, 3)
 
 Now look at what it draws to understand the relation between the rectangle and ellipse.
 
@@ -606,8 +606,8 @@ ellipse, with the additional parameters for a start angle and an end angle.
     # Another tree, with a trunk and arc for top
     # Arc is centered at (300, 340) with a width of 60 and height of 100.
     # The starting angle is 0, and ending angle is 180.
-    arcade.draw_rect_filled(300, 320, 20, 60, arcade.csscolor.SIENNA)
-    arcade.draw_arc_filled(300, 340, 60, 100, arcade.csscolor.DARK_GREEN, 0, 180)
+    arcade.draw_rect_filled(arcade.XYWH(300, 320, 20, 60), arcade.csscolor.SIENNA)
+    arcade.draw_arc_filled(arcade.XYWH(300, 340, 60, 100), arcade.csscolor.DARK_GREEN, 0, 180)
 
 .. image:: arc.png
    :width: 35%
@@ -629,7 +629,7 @@ out on paper to get it straight. This can be used to make a pine tree.
     # Another tree, with a trunk and triangle for top
     # Triangle is made of these three points:
     # (400, 400), (370, 320), (430, 320)
-    arcade.draw_rect_filled(400, 320, 20, 60, arcade.csscolor.SIENNA)
+    arcade.draw_rect_filled(arcade.XYWH(400, 320, 20, 60), arcade.csscolor.SIENNA)
     arcade.draw_triangle_filled(400, 400, 370, 320, 430, 320, arcade.csscolor.DARK_GREEN)
 
 .. image:: triangle.png
@@ -650,7 +650,7 @@ In this example we use five points to create a tree-top.
 .. code-block:: python
 
     # Draw a tree using a polygon with a list of points
-    arcade.draw_rect_filled(500, 320, 20, 60, arcade.csscolor.SIENNA)
+    arcade.draw_rect_filled(arcade.XYWH(500, 320, 20, 60), arcade.csscolor.SIENNA)
     arcade.draw_polygon_filled(((500, 400),
                                 (480, 360),
                                 (470, 320),
@@ -719,6 +719,7 @@ are next two. Finally the color and font size come next.
 .. image:: text.png
    :width: 35%
 
+Although this is a helpful illustration, it is not recommended to use the :func:`arcade.draw_text` function to draw large amounts of text. Doing so can significantly slow down your program, especially if you are drawing text that is larger than the screen size. Instead, use the :func:`arcade.Text` class to create a text object, then use the :func:`arcade.Text.draw` method to draw it. This allows you to create text objects that can be reused, and also allows you to use text that is larger than the screen size. We will cover this in more detail later in the book.
 
 Full Example Drawing Program
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -902,5 +903,5 @@ Lab 2: Draw a Picture
 Apply what you've learned here and use the drawing commands to create
 your own artwork in :ref:`lab-02`.
 
-.. _Drawing Primitives: https://api.arcade.academy/en/latest/examples/drawing_primitives.html
-.. _Quick Index: https://api.arcade.academy/en/latest/quick_index.html#id1
+.. _Drawing Primitives: https://api.arcade.academy/en/latest/api_docs/api/drawing_primitives.html
+.. _Quick Index: https://api.arcade.academy/en/latest/api_docs/quick_index.html

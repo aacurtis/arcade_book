@@ -188,9 +188,9 @@ PHP_ is an easy-to-use language that can build websites.
     See `Grace Hopper`_, `Hedy Lamar`_, and `Ada Lovelace`_ for
     examples. If you want to find other female programmers who code
     in Python, check out
-    `@PyLadies <https://twitter.com/PyLadies>`_,
-    `@DJangoGirls <https://twitter.com/djangogirls>`_,
-    and `@WomenWhoCode <https://twitter.com/WomenWhoCode>`_.
+    `@PyLadies <https://x.com/PyLadies>`_,
+    `@DJangoGirls <https://x.com/djangogirls>`_,
+    and `@WomenWhoCode <https://x.com/WomenWhoCode>`_.
 
 .. _John Backus: https://en.wikipedia.org/wiki/John_Backus
 .. _Grace Hopper: https://en.wikipedia.org/wiki/Grace_Hopper
